@@ -25,3 +25,59 @@ v
 Build Artifact (JAR)
 
 
+
+---
+
+## 🛠️ Technologies Used
+
+- **Jenkins** – CI automation server
+- **GitHub** – Source code management
+- **Java 17** – Application runtime
+- **Apache Maven** – Build and dependency management
+- **Ubuntu Linux (EC2)** – Jenkins host server
+
+---
+
+## ⚙️ Jenkins Pipeline Details
+
+The CI pipeline is defined using a **Declarative Jenkinsfile** stored in the root of the repository.
+
+### Pipeline Stages:
+1. **Checkout Code**
+   - Jenkins pulls the latest source code from GitHub.
+2. **Build with Maven**
+   - Maven compiles the application and packages it into a JAR file.
+3. **Post-build Status**
+   - Jenkins reports build success or failure.
+
+---
+
+## 📄 Jenkinsfile
+
+```groovy
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                echo 'Code checked out from GitHub'
+            }
+        }
+
+        stage('Build with Maven') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'BUILD SUCCESSFUL'
+        }
+        failure {
+            echo 'BUILD FAILED'
+        }
+    }
+}
