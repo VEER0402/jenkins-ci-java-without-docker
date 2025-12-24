@@ -10,3 +10,18 @@ This setup represents **legacy and enterprise CI environments** where build tool
 
 ## 🏗️ Architecture
 
+Developer
+|
+| Git Commit / Push
+v
+GitHub Repository
+|
+| (Manual Trigger)
+v
+Jenkins CI Server
+|
+| Maven Build
+v
+Build Artifact (JAR)
+
+
