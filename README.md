@@ -81,3 +81,51 @@ pipeline {
         }
     }
 }
+
+
+🚀 How the CI Process Works
+
+Developer pushes code to GitHub.
+
+Jenkins job is manually triggered (controlled execution).
+
+Jenkins fetches the repository.
+
+Maven builds the Java application on the Jenkins server.
+
+Build artifacts are generated in the target/ directory.
+
+
+
+
+
+🔍 Why Manual Triggering?
+
+This pipeline uses manual triggering to reflect real-world enterprise scenarios where:
+
+Deployments are tightly controlled.
+
+Shared infrastructure is used.
+
+Automatic triggers may introduce risk.
+
+Builds are executed only after validation or approval.
+
+The pipeline can be easily extended to auto-trigger using GitHub webhooks if required.
+
+
+
+
+
+
+📈 Key Highlights
+
+Traditional CI pipeline without containerization
+
+Jenkinsfile managed as code
+
+Enterprise-style controlled build execution
+
+Clear separation of CI logic and application code
+
+Easily extendable to Docker or webhook-based automation
